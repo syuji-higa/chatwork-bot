@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+export PORT=8090
+export HUBOT_CHATWORK_TOKEN=""
+export HUBOT_CHATWORK_ROOMS=""
+export HUBOT_CHATWORK_API_RATE="360"
+
+# exec node_modules/.bin/hubot --name "chatwork-bot" "$@"
+forever start -c coffee node_modules/.bin/hubot -a chatwork
